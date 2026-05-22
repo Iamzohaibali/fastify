@@ -13,6 +13,18 @@ fastify.get('/time', async () => {
   }
 })
 
+// Another useful route - get server information
+fastify.get('/info', async () => {
+  return {
+    name: 'Fastify Server',
+    version: '1.0.0',
+    nodeVersion: process.version,
+    platform: process.platform,
+    memoryUsage: process.memoryUsage().rss / 1024 / 1024, // MB
+    uptime: process.uptime() // seconds
+  }
+})
+
 const start = async () => {
   try {
     const port = Number(process.env.PORT) || 3001
