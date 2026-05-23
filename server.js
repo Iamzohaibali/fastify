@@ -29,7 +29,8 @@ fastify.get('/info', async () => {
 fastify.get('/health', async () => {
   return {
     status: 'OK',
-    server: 'healthy'
+    uptime: process.uptime(),
+    timestamp: Date.now()
   }
 })
 
