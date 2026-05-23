@@ -25,6 +25,14 @@ fastify.get('/info', async () => {
   }
 })
 
+
+fastify.get('/health', async () => {
+  return {
+    status: 'OK',
+    server: 'healthy'
+  }
+})
+
 const start = async () => {
   try {
     const port = Number(process.env.PORT) || 3001
@@ -35,4 +43,4 @@ const start = async () => {
   }
 }
 
-start()
+start() 
